@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import ProgressModels
 
 class DataService {
     enum DataError: Error {
@@ -48,20 +47,4 @@ class DataService {
         let pdfService = PDFService()
         return pdfService.fetchPDFDocuments()
     }
-}
-
-// JSONデータの構造
-struct QuestionsData: Codable {
-    let questions: [Question]
-}
-
-// 問題データモデル
-struct Question: Codable, Identifiable {
-    let id: String
-    let question: String
-    let options: [String]
-    let correctAnswerIndex: Int
-    let explanation: String
-    let category: String
-    let difficulty: String
 }

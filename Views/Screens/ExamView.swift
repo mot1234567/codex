@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ExamView: View {
+    @StateObject private var questionViewModel = QuestionViewModel()
+    @State private var showingQuestionView = false
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -33,27 +36,45 @@ struct ExamView: View {
                             title: "クラウドプラクティショナー模擬試験 1",
                             questionCount: 25,
                             timeLimit: 45,
-                            difficulty: "標準"
+                            difficulty: "標準",
+                            onStart: {
+                                questionViewModel.loadQuestions(count: 25)
+                                showingQuestionView = true
+                            }
                         )
-                        
+
                         ExamOptionCard(
                             title: "クラウドプラクティショナー模擬試験 2",
                             questionCount: 25,
                             timeLimit: 45,
-                            difficulty: "標準"
+                            difficulty: "標準",
+                            onStart: {
+                                questionViewModel.loadQuestions(count: 25)
+                                showingQuestionView = true
+                            }
                         )
-                        
+
                         ExamOptionCard(
                             title: "クラウドプラクティショナー模擬試験 3",
                             questionCount: 25,
                             timeLimit: 45,
-                            difficulty: "難しい"
+                            difficulty: "難しい",
+                            onStart: {
+                                questionViewModel.loadQuestions(count: 25)
+                                showingQuestionView = true
+                            }
                         )
                     }
                 }
                 .padding()
             }
             .navigationTitle("模擬試験")
+            .background(
+                NavigationLink(
+                    destination: QuestionView(viewModel: questionViewModel),
+                    isActive: $showingQuestionView
+                ) { EmptyView() }
+            )
         }
     }
 }
@@ -63,6 +84,7 @@ struct ExamOptionCard: View {
     var questionCount: Int
     var timeLimit: Int
     var difficulty: String
+    var onStart: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -86,7 +108,7 @@ struct ExamOptionCard: View {
                 Spacer()
                 
                 Button(action: {
-                    // 模擬試験開始
+                    onStart()
                 }) {
                     Text("開始")
                         .fontWeight(.medium)

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct PracticeView: View {
+    @StateObject private var questionViewModel = QuestionViewModel()
+    @State private var showingQuestionView = false
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,7 +22,8 @@ struct PracticeView: View {
                             .padding(.horizontal)
                         
                         Button(action: {
-                            // ランダム10問の練習開始
+                            questionViewModel.loadQuestions(count: 10)
+                            showingQuestionView = true
                         }) {
                             HStack {
                                 Image(systemName: "play.fill")
@@ -53,6 +57,12 @@ struct PracticeView: View {
                 .padding(.vertical)
             }
             .navigationTitle("練習問題")
+            .background(
+                NavigationLink(
+                    destination: QuestionView(viewModel: questionViewModel),
+                    isActive: $showingQuestionView
+                ) { EmptyView() }
+            )
         }
     }
 }

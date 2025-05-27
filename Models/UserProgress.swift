@@ -7,10 +7,6 @@
 
 import Foundation
 
-/// Stores overall progress data for a user.
-///
-/// Uses models defined in `ProgressModels.swift` to avoid duplicate type
-/// definitions across the project.
 struct UserProgress: Codable {
     var userId: String = UUID().uuidString
     /// Latest results for each question

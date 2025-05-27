@@ -22,7 +22,7 @@ struct PDFThumbnail: View {
                     .cornerRadius(8)
                     .shadow(radius: 2)
                 
-                Image(systemName: document.iconName)
+                Image(systemName: "doc.text")
                     .font(.system(size: 30))
                     .foregroundColor(.blue)
             }

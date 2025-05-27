@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import ProgressModels
 
 class QuestionViewModel: ObservableObject {
     @Published var currentQuestion: Question?

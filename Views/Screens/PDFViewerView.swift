@@ -15,7 +15,8 @@ struct PDFViewerView: View {
     var body: some View {
         VStack {
             // PDFKitView
-            PDFKitRepresentedView(document: viewModel.document)
+            PDFKitRepresentedView(document: viewModel.document,
+                                 currentPage: $viewModel.currentPage)
                 .edgesIgnoringSafeArea(.all)
             
             // ナビゲーションコントロール
@@ -70,6 +71,7 @@ struct PDFViewerView: View {
 
 struct PDFKitRepresentedView: UIViewRepresentable {
     let document: PDFKit.PDFDocument
+    @Binding var currentPage: Int
     
     func makeUIView(context: Context) -> PDFView {
         let pdfView = PDFView()
@@ -77,10 +79,16 @@ struct PDFKitRepresentedView: UIViewRepresentable {
         pdfView.autoScales = true
         pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
+        if let page = document.page(at: currentPage - 1) {
+            pdfView.go(to: page)
+        }
         return pdfView
     }
     
     func updateUIView(_ uiView: PDFView, context: Context) {
         uiView.document = document
+        if let page = document.page(at: currentPage - 1) {
+            uiView.go(to: page)
+        }
     }
 }

@@ -7,15 +7,17 @@
 
 import Foundation
 
-// Progress result models are defined in ProgressModels.swift
-
 struct UserProgress: Codable {
     var userId: String = UUID().uuidString
-    var completedQuestions: [String: QuestionResult] // 問題ID: 結果
+    /// Latest results for each question
+    var completedQuestions: [String: QuestionResult]
+    /// History of exam attempts
     var examResults: [ExamResult]
+    /// Date of the most recent study session
     var lastStudyDate: Date
+    /// Consecutive days of study
     var streakDays: Int
-    
+
     init() {
         self.completedQuestions = [:]
         self.examResults = []
@@ -23,4 +25,3 @@ struct UserProgress: Codable {
         self.streakDays = 0
     }
 }
-

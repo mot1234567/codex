@@ -29,7 +29,3 @@ struct UserProgress: Codable {
         self.streakDays = 0
     }
 }
-
-// NOTE: The definitions of `QuestionResult` and `ExamResult` were duplicated
-// in this file and in `ProgressModels.swift`. They have been removed here so
-// that the shared models from `ProgressModels.swift` are used project-wide.

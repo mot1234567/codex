@@ -15,8 +15,11 @@ struct PDFViewerView: View {
     var body: some View {
         VStack {
             // PDFKitView
-            PDFKitRepresentedView(document: viewModel.document)
-                .edgesIgnoringSafeArea(.all)
+            PDFKitRepresentedView(
+                document: viewModel.document,
+                currentPage: $viewModel.currentPage
+            )
+            .edgesIgnoringSafeArea(.all)
             
             // ナビゲーションコントロール
             HStack {
@@ -69,18 +72,48 @@ struct PDFViewerView: View {
 }
 
 struct PDFKitRepresentedView: UIViewRepresentable {
-    let document: PDFKit.PDFDocument
-    
+    var document: PDFKit.PDFDocument
+    @Binding var currentPage: Int
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
     func makeUIView(context: Context) -> PDFView {
         let pdfView = PDFView()
         pdfView.document = document
         pdfView.autoScales = true
         pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
+        pdfView.delegate = context.coordinator
+
+        if let page = document.page(at: currentPage - 1) {
+            pdfView.go(to: page)
+        }
+
         return pdfView
     }
-    
+
     func updateUIView(_ uiView: PDFView, context: Context) {
         uiView.document = document
+
+        if let page = document.page(at: currentPage - 1) {
+            uiView.go(to: page)
+        }
+    }
+
+    class Coordinator: NSObject, PDFViewDelegate {
+        var parent: PDFKitRepresentedView
+
+        init(_ parent: PDFKitRepresentedView) {
+            self.parent = parent
+        }
+
+        func pdfViewPageChanged(_ notification: Notification) {
+            guard let pdfView = notification.object as? PDFView,
+                  let page = pdfView.currentPage,
+                  let index = pdfView.document?.index(for: page) else { return }
+            parent.currentPage = index + 1
+        }
     }
 }

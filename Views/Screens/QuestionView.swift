@@ -23,6 +23,13 @@ struct QuestionView: View {
                         
                         Spacer()
                         
+                        if viewModel.isExamMode && viewModel.isTimerActive {
+                            Text("残り時間: \(viewModel.formatTime(viewModel.timeRemaining))")
+                                .font(.headline)
+                                .foregroundColor(viewModel.timeRemaining < 300 ? .red : .primary) // 5分未満で赤色表示
+                                .padding(.horizontal)
+                        }
+                        
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
                         }) {

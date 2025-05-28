@@ -33,34 +33,40 @@ struct ExamView: View {
                     // 模擬試験オプション
                     VStack(spacing: 16) {
                         ExamOptionCard(
-                            title: "クラウドプラクティショナー模擬試験 1",
+                            title: "クラウドプラクティショナー基礎編",
                             questionCount: 25,
                             timeLimit: 45,
-                            difficulty: "標準",
+                            difficulty: "基礎",
+                            description: "基本的なAWSサービスとクラウド概念を中心とした問題",
                             onStart: {
-                                questionViewModel.loadQuestions(count: 25)
+                                questionViewModel.loadQuestions(category: "クラウドの概念", count: 25)
+                                questionViewModel.startTimer(duration: 45 * 60) // 45分
                                 showingQuestionView = true
                             }
                         )
 
                         ExamOptionCard(
-                            title: "クラウドプラクティショナー模擬試験 2",
+                            title: "セキュリティ・請求重点編",
                             questionCount: 25,
                             timeLimit: 45,
                             difficulty: "標準",
+                            description: "セキュリティと請求管理に重点を置いた実践的な問題",
                             onStart: {
                                 questionViewModel.loadQuestions(count: 25)
+                                questionViewModel.startTimer(duration: 45 * 60)
                                 showingQuestionView = true
                             }
                         )
 
                         ExamOptionCard(
-                            title: "クラウドプラクティショナー模擬試験 3",
+                            title: "総合模擬試験（本番レベル）",
                             questionCount: 25,
                             timeLimit: 45,
                             difficulty: "難しい",
+                            description: "本番試験と同等の難易度で全範囲をカバー",
                             onStart: {
                                 questionViewModel.loadQuestions(count: 25)
+                                questionViewModel.startTimer(duration: 45 * 60)
                                 showingQuestionView = true
                             }
                         )
@@ -84,12 +90,20 @@ struct ExamOptionCard: View {
     var questionCount: Int
     var timeLimit: Int
     var difficulty: String
+    var description: String = ""
     var onStart: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
                 .font(.headline)
+            
+            if !description.isEmpty {
+                Text(description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
+            }
             
             HStack {
                 Label("\(questionCount)問", systemImage: "list.bullet")

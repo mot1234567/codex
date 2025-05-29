@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class UserProgressViewModel: ObservableObject {
     @Published var questionResults: [String: [QuestionResult]] = [:]

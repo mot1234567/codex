@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class QuestionViewModel: ObservableObject {
     @Published var currentQuestion: Question?
@@ -18,7 +19,11 @@ class QuestionViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
     @Published var quizCompleted: Bool = false
+    @Published var timeRemaining: TimeInterval = 0
+    @Published var isTimerActive: Bool = false
+    @Published var isExamMode: Bool = false
     
+    private var timer: Timer?
     private var dataService: DataService
     private var userProgressViewModel: UserProgressViewModel
     
@@ -159,6 +164,8 @@ class QuestionViewModel: ObservableObject {
     }
     
     func completeQuiz() {
+        stopTimer()
+        
         // クイズ完了時の処理
         quizCompleted = true
         
@@ -167,10 +174,42 @@ class QuestionViewModel: ObservableObject {
             date: Date(),
             totalQuestions: questions.count,
             correctAnswers: correctAnswerCount,
-            timeSpent: 0, // 時間計測が必要な場合は別途実装
-            examType: "練習問題"
+            timeSpent: isExamMode ? (45 * 60 - timeRemaining) : 0, // 45分からの経過時間
+            examType: isExamMode ? "模擬試験" : "練習問題"
         )
         
         userProgressViewModel.saveExamResult(examResult)
+    }
+    
+    func startTimer(duration: TimeInterval) {
+        timeRemaining = duration
+        isTimerActive = true
+        isExamMode = true
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 1
+            } else {
+                self.completeQuiz()
+            }
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        isTimerActive = false
+    }
+    
+    func formatTime(_ time: TimeInterval) -> String {
+        let minutes = Int(time) / 60
+        let seconds = Int(time) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    deinit {
+        stopTimer()
     }
 }

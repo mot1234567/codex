@@ -1,5 +1,6 @@
 import Foundation
 import PDFKit
+import Combine
 
 class PDFViewModel: ObservableObject {
     @Published var document: PDFKit.PDFDocument

@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct PracticeView: View {
+    @StateObject private var questionViewModel = QuestionViewModel()
+    @StateObject private var userProgressViewModel = UserProgressViewModel()
+    @State private var showingQuestionView = false
+    @State private var selectedCategory: String = ""
+
     var body: some View {
         NavigationView {
             ScrollView {
@@ -19,7 +24,8 @@ struct PracticeView: View {
                             .padding(.horizontal)
                         
                         Button(action: {
-                            // ランダム10問の練習開始
+                            questionViewModel.loadQuestions(count: 10)
+                            showingQuestionView = true
                         }) {
                             HStack {
                                 Image(systemName: "play.fill")
@@ -42,10 +48,22 @@ struct PracticeView: View {
                             .padding(.horizontal)
                         
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 16) {
-                            CategoryCard(category: "クラウドの概念", count: 75)
-                            CategoryCard(category: "セキュリティ", count: 85)
-                            CategoryCard(category: "テクノロジー", count: 120)
-                            CategoryCard(category: "請求と料金", count: 65)
+                            ForEach(Array(userProgressViewModel.categoryProgress.keys.sorted()), id: \.self) { categoryKey in
+                                if let progress = userProgressViewModel.categoryProgress[categoryKey] {
+                                    Button(action: {
+                                        selectedCategory = categoryKey
+                                        questionViewModel.loadQuestions(category: categoryKey, count: 20)
+                                        showingQuestionView = true
+                                    }) {
+                                        CategoryCard(
+                                            title: categoryKey,
+                                            count: progress.totalQuestions,
+                                            progress: progress
+                                        )
+                                    }
+                                    .buttonStyle(PlainButtonStyle())
+                                }
+                            }
                         }
                         .padding(.horizontal)
                     }
@@ -53,6 +71,12 @@ struct PracticeView: View {
                 .padding(.vertical)
             }
             .navigationTitle("練習問題")
+            .background(
+                NavigationLink(
+                    destination: QuestionView(viewModel: questionViewModel),
+                    isActive: $showingQuestionView
+                ) { EmptyView() }
+            )
         }
     }
 }

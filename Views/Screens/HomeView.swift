@@ -2,11 +2,10 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var userProgressViewModel = UserProgressViewModel()
+    @StateObject private var questionViewModel = QuestionViewModel()
     @State private var showingQuestionView = false
-    @State private var showingExamView = false
     @State private var showingPDFView = false
     @State private var selectedPDF: PDFDocument?
-    @State private var selectedCategory: String?
     
     private let dataService = DataService()
     private let pdfService = PDFService()
@@ -76,15 +75,10 @@ struct HomeView: View {
                             .font(.headline)
                         
                         HStack(spacing: 16) {
-                            NavigationLink(destination:
-                                QuestionView(viewModel: QuestionViewModel())
-                                    .onAppear {
-                                        // 練習問題モード（10問）
-                                        let vm = QuestionViewModel()
-                                        vm.loadQuestions(count: 10)
-                                    },
-                                isActive: $showingQuestionView
-                            ) {
+                            Button(action: {
+                                questionViewModel.loadQuestions(count: 10)
+                                showingQuestionView = true
+                            }) {
                                 StudyModeCard(
                                     title: "練習問題",
                                     description: "10問の小テスト",
@@ -93,16 +87,11 @@ struct HomeView: View {
                                 )
                             }
                             .buttonStyle(PlainButtonStyle())
-                            
-                            NavigationLink(destination:
-                                QuestionView(viewModel: QuestionViewModel())
-                                    .onAppear {
-                                        // 模擬試験モード（25問）
-                                        let vm = QuestionViewModel()
-                                        vm.loadQuestions(count: 25)
-                                    },
-                                isActive: $showingExamView
-                            ) {
+
+                            Button(action: {
+                                questionViewModel.loadQuestions(count: 25)
+                                showingQuestionView = true
+                            }) {
                                 StudyModeCard(
                                     title: "模擬試験",
                                     description: "25問の本番形式",
@@ -125,7 +114,7 @@ struct HomeView: View {
                                 let progress = userProgressViewModel.getProgressForCategory(category)
                                 
                                 Button(action: {
-                                    selectedCategory = category
+                                    questionViewModel.loadQuestions(category: category, count: 10)
                                     showingQuestionView = true
                                 }) {
                                     CategoryCard(
@@ -203,16 +192,9 @@ struct HomeView: View {
             )
             .background(
                 NavigationLink(
-                    destination: QuestionView(
-                        viewModel: QuestionViewModel()
-                    ).onAppear {
-                        let vm = QuestionViewModel()
-                        vm.loadQuestions(category: selectedCategory, count: 10)
-                    },
+                    destination: QuestionView(viewModel: questionViewModel),
                     isActive: $showingQuestionView
-                ) {
-                    EmptyView()
-                }
+                ) { EmptyView() }
             )
         }
     }

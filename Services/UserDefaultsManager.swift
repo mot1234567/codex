@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import ProgressModels
-import PDFDocumentModel
 
 class UserDefaultsManager {
     private let questionResultsKey = "aws_quiz_question_results"

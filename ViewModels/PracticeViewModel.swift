@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class PracticeViewModel: ObservableObject {
     @Published var categories: [String: Int] = [:]

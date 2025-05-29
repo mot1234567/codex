@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class ExamViewModel: ObservableObject {
     @Published var questions: [Question] = []

@@ -21,30 +21,3 @@ struct UserProgress: Codable {
         self.streakDays = 0
     }
 }
-
-struct QuestionResult: Codable {
-    var questionId: String
-    var isCorrect: Bool
-    var attemptCount: Int
-    var lastAttemptDate: Date
-    
-    init(questionId: String, isCorrect: Bool) {
-        self.questionId = questionId
-        self.isCorrect = isCorrect
-        self.attemptCount = 1
-        self.lastAttemptDate = Date()
-    }
-}
-
-struct ExamResult: Codable, Identifiable {
-    var id: String = UUID().uuidString
-    var date: Date
-    var totalQuestions: Int
-    var correctAnswers: Int
-    var timeSpent: TimeInterval
-    var examType: String
-    
-    var scorePercentage: Double {
-        return Double(correctAnswers) / Double(totalQuestions) * 100.0
-    }
-}

@@ -10,6 +10,7 @@ import SwiftUI
 struct QuestionView: View {
     @ObservedObject var viewModel: QuestionViewModel
     @Environment(\.presentationMode) var presentationMode
+    @State private var showingResult = false
     
     var body: some View {
         VStack {
@@ -21,6 +22,13 @@ struct QuestionView: View {
                             .font(.headline)
                         
                         Spacer()
+                        
+                        if viewModel.isExamMode && viewModel.isTimerActive {
+                            Text("残り時間: \(viewModel.formatTime(viewModel.timeRemaining))")
+                                .font(.headline)
+                                .foregroundColor(viewModel.timeRemaining < 300 ? .red : .primary) // 5分未満で赤色表示
+                                .padding(.horizontal)
+                        }
                         
                         Button(action: {
                             presentationMode.wrappedValue.dismiss()
@@ -104,7 +112,8 @@ struct QuestionView: View {
                                     viewModel.nextQuestion()
                                 } else {
                                     // 最後の問題の場合は結果画面へ
-                                    presentationMode.wrappedValue.dismiss()
+                                    viewModel.completeQuiz()
+                                    showingResult = true
                                 }
                             } else {
                                 viewModel.selectAnswer(at: viewModel.selectedAnswerIndex ?? 0)
@@ -144,6 +153,12 @@ struct QuestionView: View {
                 viewModel.loadQuestions()
             }
         }
+        .background(
+            NavigationLink(
+                destination: ResultView(viewModel: viewModel),
+                isActive: $showingResult
+            ) { EmptyView() }
+        )
     }
 }
 

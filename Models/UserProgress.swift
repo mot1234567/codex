@@ -18,6 +18,13 @@ struct UserProgress: Codable {
     /// 最終学習日
     var lastStudyDate: Date
     /// 連続学習日数
+    /// Latest results for each question
+    var completedQuestions: [String: QuestionResult]
+    /// History of exam attempts
+    var examResults: [ExamResult]
+    /// Date of the most recent study session
+    var lastStudyDate: Date
+    /// Consecutive days of study
     var streakDays: Int
 
     init() {

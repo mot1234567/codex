@@ -79,4 +79,20 @@ class UserDefaultsManager {
         
         // PDFの最後に表示していたページ情報は残す
     }
+    
+    private let userProgressKey = "aws_quiz_user_progress"
+    
+    func saveUserProgress(_ progress: UserProgress) {
+        if let encoded = try? JSONEncoder().encode(progress) {
+            UserDefaults.standard.set(encoded, forKey: userProgressKey)
+        }
+    }
+    
+    func loadUserProgress() -> UserProgress? {
+        if let data = UserDefaults.standard.data(forKey: userProgressKey),
+           let decoded = try? JSONDecoder().decode(UserProgress.self, from: data) {
+            return decoded
+        }
+        return nil
+    }
 }

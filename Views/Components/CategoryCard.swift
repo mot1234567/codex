@@ -10,11 +10,12 @@ import SwiftUI
 struct CategoryCard: View {
     var title: String
     var count: Int
-    var iconName: String
-    var color: Color
+    var iconName: String = "book.fill"
+    var color: Color = .blue
+    var progress: CategoryProgress? = nil
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Image(systemName: iconName)
                     .font(.title2)
@@ -27,14 +28,28 @@ struct CategoryCard: View {
                     .foregroundColor(.secondary)
             }
             
-            Spacer()
-            
             Text(title)
                 .font(.headline)
                 .foregroundColor(.primary)
+            
+            if let progress = progress {
+                VStack(spacing: 4) {
+                    HStack {
+                        Text("進捗")
+                            .font(.caption)
+                        Spacer()
+                        Text("\(Int(progress.completionPercentage))%")
+                            .font(.caption)
+                    }
+                    
+                    ProgressView(value: progress.completionPercentage / 100.0)
+                        .progressViewStyle(LinearProgressViewStyle())
+                }
+                .padding(.top, 4)
+            }
         }
         .padding()
-        .frame(height: 100)
+        .frame(minHeight: 100)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(color.opacity(0.1))
         .cornerRadius(10)

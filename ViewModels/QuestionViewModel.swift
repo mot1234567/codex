@@ -129,39 +129,6 @@ class QuestionViewModel: ObservableObject {
         isCorrect = false
     }
     
-    // 結果画面用の拡張
-    var correctAnswerCount: Int {
-        var count = 0
-        for (index, question) in questions.enumerated() {
-            if index < selectedAnswers.count,
-               let selectedAnswer = selectedAnswers[index],
-               selectedAnswer == question.correctAnswerIndex {
-                count += 1
-            }
-        }
-        return count
-    }
-    
-    var correctAnswerPercentage: Double {
-        guard !questions.isEmpty else { return 0 }
-        return Double(correctAnswerCount) / Double(questions.count) * 100.0
-    }
-    
-    var userAnswers: [Int] {
-        return selectedAnswers.compactMap { $0 }
-    }
-    
-    func restartQuiz() {
-        currentQuestionIndex = 0
-        if let firstQuestion = questions.first {
-            currentQuestion = firstQuestion
-        }
-        selectedAnswers = Array(repeating: nil, count: questions.count)
-        selectedAnswerIndex = nil
-        showAnswer = false
-        isCorrect = false
-        quizCompleted = false
-    }
     
     func completeQuiz() {
         stopTimer()

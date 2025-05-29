@@ -168,4 +168,3 @@ struct ResultStatView: View {
         .frame(minWidth: 100)
     }
 }
-

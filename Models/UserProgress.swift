@@ -7,13 +7,26 @@
 
 import Foundation
 
+/// ユーザー全体の進捗データを保持するモデル
 struct UserProgress: Codable {
+    /// ユーザー識別子
     var userId: String = UUID().uuidString
-    var completedQuestions: [String: QuestionResult] // 問題ID: 結果
+    /// 問題 ID ごとの回答結果
+    var completedQuestions: [String: QuestionResult]
+    /// 模擬試験の結果一覧
     var examResults: [ExamResult]
+    /// 最終学習日
     var lastStudyDate: Date
+    /// 連続学習日数
+    /// Latest results for each question
+    var completedQuestions: [String: QuestionResult]
+    /// History of exam attempts
+    var examResults: [ExamResult]
+    /// Date of the most recent study session
+    var lastStudyDate: Date
+    /// Consecutive days of study
     var streakDays: Int
-    
+
     init() {
         self.completedQuestions = [:]
         self.examResults = []

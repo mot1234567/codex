@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class UserProgressViewModel: ObservableObject {
     @Published var questionResults: [String: [QuestionResult]] = [:]
@@ -35,6 +34,8 @@ class UserProgressViewModel: ObservableObject {
         
         // UserDefaultsに保存
         userDefaultsManager.saveQuestionResults(questionResults)
+        
+        updateStreak()
         
         // カテゴリ別進捗を更新
         updateCategoryProgress()
@@ -128,5 +129,35 @@ class UserProgressViewModel: ObservableObject {
         userDefaultsManager.saveQuestionResults(questionResults)
         userDefaultsManager.saveExamResults(examResults)
         userDefaultsManager.saveCategoryProgress(categoryProgress)
+    }
+    
+    func updateStreak() {
+        let calendar = Calendar.current
+        let today = Date()
+        
+        var progress = userDefaultsManager.loadUserProgress() ?? UserProgress()
+        
+        if calendar.isDate(progress.lastStudyDate, inSameDayAs: today) {
+            return
+        }
+        
+        if let yesterday = calendar.date(byAdding: .day, value: -1, to: today),
+           calendar.isDate(progress.lastStudyDate, inSameDayAs: yesterday) {
+            progress.streakDays += 1
+        } else {
+            progress.streakDays = 1
+        }
+        
+        progress.lastStudyDate = today
+        
+        userDefaultsManager.saveUserProgress(progress)
+    }
+    
+    func getCurrentStreak() -> Int {
+        return userDefaultsManager.loadUserProgress()?.streakDays ?? 0
+    }
+    
+    func getLastStudyDate() -> Date? {
+        return userDefaultsManager.loadUserProgress()?.lastStudyDate
     }
 }

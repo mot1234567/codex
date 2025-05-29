@@ -1,0 +1,6 @@
+—– macOS / Xcode user files —–
+
+.DS_Store
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/

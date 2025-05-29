@@ -1,0 +1,755 @@
+{
+  "questions": [
+    {
+      "id": "CLF-001",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの主な特徴として正しいものはどれですか？",
+      "options": [
+        "オンプレミスと比較して常に低コストである",
+        "従量課金制で必要な分だけ支払う",
+        "すべてのサービスが無料利用枠を提供している",
+        "物理サーバーの管理が必要である"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSクラウドの主な特徴の一つは従量課金制であり、使用した分だけ支払うモデルを採用しています。これにより、初期投資を抑えつつ、需要に応じてリソースを調整できます。",
+      "relatedServices": ["AWS Billing", "AWS Cost Explorer"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-002",
+      "category": "グローバルインフラストラクチャ",
+      "question": "AWSのグローバルインフラストラクチャに関する説明として正しいものはどれですか？",
+      "options": [
+        "リージョンは単一のデータセンターで構成される",
+        "アベイラビリティーゾーンは複数のリージョンで構成される",
+        "エッジロケーションはCloudFrontなどのサービスのためのキャッシュサーバー",
+        "すべてのAWSサービスはすべてのリージョンで利用可能"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSのグローバルインフラストラクチャでは、リージョンは複数のアベイラビリティーゾーン（AZ）で構成され、各AZは独立したデータセンターです。エッジロケーションはCloudFrontなどのサービスのためのキャッシュサーバーとして機能し、コンテンツ配信を高速化します。また、すべてのAWSサービスがすべてのリージョンで利用できるわけではありません。",
+      "relatedServices": ["Amazon CloudFront", "AWS Global Accelerator"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-003",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSの責任共有モデルにおいて、顧客の責任範囲に含まれるものはどれですか？",
+      "options": [
+        "物理サーバーのメンテナンス",
+        "ネットワークインフラストラクチャの保護",
+        "EC2インスタンス内のオペレーティングシステムの更新",
+        "データセンターの物理的セキュリティ"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSの責任共有モデルでは、AWSはクラウドの「セキュリティ」に責任を持ち、顧客はクラウド「内」のセキュリティに責任を持ちます。物理サーバーのメンテナンス、ネットワークインフラストラクチャの保護、データセンターの物理的セキュリティはAWSの責任です。一方、EC2インスタンス内のオペレーティングシステムの更新やパッチ適用、アプリケーションのセキュリティ、データの暗号化などは顧客の責任となります。",
+      "relatedServices": ["AWS IAM", "AWS Security Hub"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-004",
+      "category": "クラウドの概念",
+      "question": "オンプレミス環境と比較したAWSクラウドの主なメリットとして適切でないものはどれですか？",
+      "options": [
+        "初期投資（CAPEX）を運用コスト（OPEX）に変換できる",
+        "需要に応じてリソースを迅速にスケールアップ・ダウンできる",
+        "すべてのITインフラストラクチャの完全な管理権限を持つ",
+        "グローバルに展開されたインフラストラクチャを利用できる"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSクラウドでは、物理的なインフラストラクチャはAWSが管理するため、顧客は完全な管理権限を持ちません。これは責任共有モデルの一部です。一方、初期投資を運用コストに変換できること、需要に応じた迅速なスケーリング、グローバルインフラストラクチャの利用はAWSクラウドの主要なメリットです。",
+      "relatedServices": ["AWS Cost Explorer", "AWS Budgets"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-005",
+      "category": "テクノロジー",
+      "question": "AWSでコンピューティングリソースを提供する主要なサービスはどれですか？",
+      "options": [
+        "Amazon S3",
+        "Amazon EC2",
+        "Amazon RDS",
+        "Amazon VPC"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon EC2（Elastic Compute Cloud）は、AWSの主要なコンピューティングサービスであり、クラウド内の仮想サーバーを提供します。Amazon S3はストレージサービス、Amazon RDSはデータベースサービス、Amazon VPCはネットワークサービスです。",
+      "relatedServices": ["AWS Lambda", "Amazon ECS", "Amazon EKS"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-006",
+      "category": "テクノロジー",
+      "question": "AWSでオブジェクトストレージを提供するサービスはどれですか？",
+      "options": [
+        "Amazon EBS",
+        "Amazon EFS",
+        "Amazon S3",
+        "Amazon RDS"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon S3（Simple Storage Service）は、AWSのオブジェクトストレージサービスであり、高い耐久性と可用性を持つストレージを提供します。Amazon EBSはブロックストレージ、Amazon EFSはファイルストレージ、Amazon RDSはリレーショナルデータベースサービスです。",
+      "relatedServices": ["Amazon Glacier", "Amazon S3 Intelligent-Tiering"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-007",
+      "category": "テクノロジー",
+      "question": "AWSでリレーショナルデータベースを提供するサービスはどれですか？",
+      "options": [
+        "Amazon DynamoDB",
+        "Amazon RDS",
+        "Amazon ElastiCache",
+        "Amazon Redshift"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon RDS（Relational Database Service）は、AWSのマネージドリレーショナルデータベースサービスであり、MySQL、PostgreSQL、Oracle、SQL Server、MariaDBなどの複数のデータベースエンジンをサポートしています。Amazon DynamoDBはNoSQLデータベース、Amazon ElastiCacheはインメモリキャッシュ、Amazon Redshiftはデータウェアハウスサービスです。",
+      "relatedServices": ["Amazon Aurora", "AWS Database Migration Service"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-008",
+      "category": "テクノロジー",
+      "question": "AWSでコンテンツ配信ネットワーク（CDN）を提供するサービスはどれですか？",
+      "options": [
+        "Amazon Route 53",
+        "Amazon CloudFront",
+        "AWS Direct Connect",
+        "Amazon API Gateway"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon CloudFrontは、AWSのコンテンツ配信ネットワーク（CDN）サービスであり、低レイテンシーと高速なデータ転送でコンテンツをグローバルに配信します。Amazon Route 53はDNSサービス、AWS Direct Connectは専用ネットワーク接続サービス、Amazon API Gatewayは API管理サービスです。",
+      "relatedServices": ["AWS Global Accelerator", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-009",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSでユーザー認証と権限管理を提供する主要なサービスはどれですか？",
+      "options": [
+        "AWS Shield",
+        "AWS WAF",
+        "AWS IAM",
+        "Amazon Inspector"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWS IAM（Identity and Access Management）は、AWSリソースへのアクセスを安全に制御するためのサービスであり、ユーザー、グループ、ロール、ポリシーを管理します。AWS ShieldはDDoS保護サービス、AWS WAFはウェブアプリケーションファイアウォール、Amazon Inspectorは自動セキュリティ評価サービスです。",
+      "relatedServices": ["AWS Organizations", "AWS Single Sign-On"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-010",
+      "category": "請求と料金",
+      "question": "AWSの料金モデルの特徴として正しいものはどれですか？",
+      "options": [
+        "すべてのサービスは月額固定料金",
+        "使用量に基づく従量課金制",
+        "年間契約が必須",
+        "すべてのサービスに最低利用料金がある"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSの料金モデルの主な特徴は、使用量に基づく従量課金制です。これにより、実際に使用したリソースに対してのみ支払いが発生し、需要の変動に応じて柔軟にコストを調整できます。年間契約は必須ではなく、リザーブドインスタンスなどの割引オプションとして提供されています。また、多くのサービスには最低利用料金はありません。",
+      "relatedServices": ["AWS Cost Explorer", "AWS Budgets", "AWS Cost and Usage Report"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-011",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの主な利点として正しくないものはどれですか？",
+      "options": [
+        "変動する事業ニーズに対応した俊敏性",
+        "規模の経済によるコスト削減",
+        "グローバルなインフラストラクチャへのアクセス",
+        "ハードウェア障害に対する完全な保証"
+      ],
+      "correctAnswerIndex": 3,
+      "explanation": "AWSクラウドは高い可用性と耐久性を提供しますが、ハードウェア障害に対する「完全な保証」は提供していません。障害は発生する可能性があり、それに対処するために複数のアベイラビリティーゾーンにわたるデプロイなどの設計が必要です。変動する事業ニーズに対応した俊敏性、規模の経済によるコスト削減、グローバルなインフラストラクチャへのアクセスは、AWSクラウドの主な利点です。",
+      "relatedServices": ["Amazon EC2 Auto Scaling", "AWS Global Infrastructure"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-012",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの「俊敏性」の利点として最も適切な例はどれですか？",
+      "options": [
+        "サーバーの物理的なセキュリティを確保できる",
+        "新しいサーバーを数分で起動できる",
+        "データセンターの場所を自由に選択できる",
+        "ハードウェアの故障を完全に防止できる"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSクラウドの「俊敏性」の主な利点は、新しいリソース（サーバーなど）を数分で起動できることです。これにより、ビジネスニーズの変化に迅速に対応し、実験や革新を促進することができます。物理的なセキュリティはAWSの責任であり、データセンターの場所は限られており、ハードウェアの故障は完全に防止できるものではありません。",
+      "relatedServices": ["Amazon EC2", "AWS CloudFormation", "AWS Elastic Beanstalk"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-013",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの「経済性」の利点として最も適切な例はどれですか？",
+      "options": [
+        "すべてのサービスが無料で利用できる",
+        "規模の経済により低コストでサービスを提供できる",
+        "すべてのリソースを常に最大容量で利用できる",
+        "データセンターの物理的なセキュリティを自社で管理できる"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSクラウドの「経済性」の主な利点は、AWSが大規模な運用を行うことによる規模の経済により、低コストでサービスを提供できることです。これにより、個々の顧客は自社でインフラを構築・運用するよりも低コストでITリソースを利用できます。すべてのサービスが無料ではなく、リソースの利用は需要に応じて調整され、データセンターの物理的なセキュリティはAWSが管理します。",
+      "relatedServices": ["AWS Cost Explorer", "AWS Trusted Advisor", "AWS Budgets"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-014",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの「弾力性」の利点として最も適切な例はどれですか？",
+      "options": [
+        "物理サーバーの耐久性が向上する",
+        "需要の変動に応じてリソースを自動的にスケールできる",
+        "すべてのサービスが無料利用枠を提供している",
+        "データセンターの場所を自由に選択できる"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSクラウドの「弾力性」の主な利点は、需要の変動に応じてリソースを自動的にスケールアップまたはスケールダウンできることです。これにより、ピーク時には必要なリソースを確保し、需要が少ない時には余分なリソースを解放してコストを削減できます。物理サーバーの耐久性向上は弾力性とは異なり、すべてのサービスが無料利用枠を提供しているわけではなく、データセンターの場所は限られています。",
+      "relatedServices": ["Amazon EC2 Auto Scaling", "AWS Elastic Beanstalk", "Amazon DynamoDB"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-015",
+      "category": "クラウドの概念",
+      "question": "AWSクラウドの「スケーラビリティ」の利点として最も適切な例はどれですか？",
+      "options": [
+        "物理サーバーのメンテナンスが不要になる",
+        "データセンターの場所を自由に選択できる",
+        "需要の増加に応じてリソースを追加できる",
+        "すべてのサービスが無料で利用できる"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSクラウドの「スケーラビリティ」の主な利点は、需要の増加に応じてリソースを追加できることです。これにより、ビジネスの成長に合わせてITインフラを拡張し、パフォーマンスを維持することができます。物理サーバーのメンテナンスはAWSの責任であり、データセンターの場所は限られており、すべてのサービスが無料で利用できるわけではありません。",
+      "relatedServices": ["Amazon EC2", "Amazon RDS", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-016",
+      "category": "グローバルインフラストラクチャ",
+      "question": "AWSリージョンに関する説明として正しいものはどれですか？",
+      "options": [
+        "リージョンは単一のデータセンターで構成される",
+        "すべてのAWSサービスはすべてのリージョンで利用可能",
+        "リージョンは地理的に分離された地域に配置されている",
+        "リージョン間のデータ転送に料金はかからない"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSリージョンは地理的に分離された地域（北米、南米、欧州、アジアなど）に配置されています。各リージョンは複数のアベイラビリティーゾーンで構成され、単一のデータセンターではありません。すべてのAWSサービスがすべてのリージョンで利用できるわけではなく、リージョン間のデータ転送には料金がかかります。",
+      "relatedServices": ["AWS Global Infrastructure", "Amazon EC2", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-017",
+      "category": "グローバルインフラストラクチャ",
+      "question": "AWSアベイラビリティーゾーン（AZ）に関する説明として正しいものはどれですか？",
+      "options": [
+        "アベイラビリティーゾーンは単一のデータセンターである",
+        "各リージョンには必ず2つのアベイラビリティーゾーンがある",
+        "アベイラビリティーゾーンは互いに数百キロメートル離れている",
+        "アベイラビリティーゾーンは独立した電源、ネットワーク、冷却設備を持つ"
+      ],
+      "correctAnswerIndex": 3,
+      "explanation": "AWSアベイラビリティーゾーン（AZ）は、独立した電源、ネットワーク、冷却設備を持つ1つまたは複数のデータセンターで構成されています。これにより、1つのAZで障害が発生しても他のAZには影響しないよう設計されています。AZは単一のデータセンターとは限らず、各リージョンには最低3つのAZがあり、AZ間は数十キロメートル程度の距離で分離されています（数百キロメートルではない）。",
+      "relatedServices": ["AWS Global Infrastructure", "Amazon EC2", "Amazon RDS Multi-AZ"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-018",
+      "category": "グローバルインフラストラクチャ",
+      "question": "AWSエッジロケーションの主な目的は何ですか？",
+      "options": [
+        "大規模なコンピューティングリソースを提供する",
+        "データベースサービスをホストする",
+        "コンテンツ配信を高速化する",
+        "長期データストレージを提供する"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSエッジロケーションの主な目的は、Amazon CloudFrontなどのサービスを通じてコンテンツ配信を高速化することです。エッジロケーションはユーザーに地理的に近い場所に配置され、キャッシュされたコンテンツを低レイテンシーで配信します。大規模なコンピューティングリソースの提供、データベースサービスのホスト、長期データストレージの提供は、主にAWSリージョン内のサービスが担当します。",
+      "relatedServices": ["Amazon CloudFront", "AWS Global Accelerator", "Amazon Route 53"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-019",
+      "category": "グローバルインフラストラクチャ",
+      "question": "複数のアベイラビリティーゾーンにわたってリソースをデプロイする主な理由は何ですか？",
+      "options": [
+        "コストを削減するため",
+        "高可用性を確保するため",
+        "データ転送速度を向上させるため",
+        "管理の複雑さを軽減するため"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "複数のアベイラビリティーゾーン（AZ）にわたってリソースをデプロイする主な理由は、高可用性を確保するためです。1つのAZで障害が発生しても、他のAZのリソースが引き続き機能することで、サービスの中断を最小限に抑えることができます。複数のAZを使用すると通常はコストが増加し、データ転送速度の向上は主な目的ではなく、管理の複雑さも増加します。",
+      "relatedServices": ["Amazon EC2 Auto Scaling", "Amazon RDS Multi-AZ", "Elastic Load Balancing"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-020",
+      "category": "グローバルインフラストラクチャ",
+      "question": "グローバルに展開するアプリケーションで、ユーザーに最も近いAWSリージョンにトラフィックをルーティングするのに最適なサービスはどれですか？",
+      "options": [
+        "Amazon VPC",
+        "AWS Direct Connect",
+        "Amazon Route 53",
+        "AWS Transit Gateway"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon Route 53は、AWSのDNS（ドメインネームシステム）サービスであり、ユーザーに最も近いAWSリージョンにトラフィックをルーティングするための地理的ルーティングポリシーやレイテンシーベースのルーティングポリシーを提供します。これにより、グローバルに展開するアプリケーションのパフォーマンスを最適化できます。Amazon VPCはプライベートネットワーク環境、AWS Direct Connectは専用ネットワーク接続、AWS Transit Gatewayは複数のVPCとオンプレミスネットワークを接続するサービスです。",
+      "relatedServices": ["Amazon CloudFront", "AWS Global Accelerator"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-021",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSの責任共有モデルにおいて、AWSの責任範囲に含まれるものはどれですか？",
+      "options": [
+        "顧客データの暗号化",
+        "IAMユーザーのパスワードポリシー設定",
+        "データセンターの物理的セキュリティ",
+        "EC2インスタンスのゲストOSのパッチ適用"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSの責任共有モデルでは、AWSはクラウドの「セキュリティ」に責任を持ち、顧客はクラウド「内」のセキュリティに責任を持ちます。データセンターの物理的セキュリティはAWSの責任です。一方、顧客データの暗号化、IAMユーザーのパスワードポリシー設定、EC2インスタンスのゲストOSのパッチ適用は顧客の責任となります。",
+      "relatedServices": ["AWS IAM", "AWS Security Hub", "AWS Config"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-022",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSの責任共有モデルにおいて、「クラウドのセキュリティ」と「クラウド内のセキュリティ」の違いを最もよく表しているのはどれですか？",
+      "options": [
+        "「クラウドのセキュリティ」はAWSの責任、「クラウド内のセキュリティ」は顧客の責任",
+        "「クラウドのセキュリティ」は物理的なセキュリティ、「クラウド内のセキュリティ」はソフトウェアのセキュリティ",
+        "「クラウドのセキュリティ」はネットワークセキュリティ、「クラウド内のセキュリティ」はデータセキュリティ",
+        "「クラウドのセキュリティ」はパブリッククラウド、「クラウド内のセキュリティ」はプライベートクラウド"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "AWSの責任共有モデルでは、「クラウドのセキュリティ」はAWSの責任であり、「クラウド内のセキュリティ」は顧客の責任です。AWSはインフラストラクチャ、ハードウェア、ソフトウェア、ネットワーク、データセンターなどの「クラウド自体」のセキュリティを担当し、顧客はデータ、アプリケーション、アクセス管理、ネットワーク設定など「クラウド上で実行するもの」のセキュリティを担当します。",
+      "relatedServices": ["AWS IAM", "AWS Security Hub", "AWS Shield"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-023",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSでユーザーのアクセス権限を管理するためのベストプラクティスはどれですか？",
+      "options": [
+        "すべてのユーザーにルートアカウントの認証情報を共有する",
+        "最小権限の原則に従ってアクセス権を付与する",
+        "すべてのユーザーに管理者権限を付与する",
+        "アクセスキーをソースコードに直接埋め込む"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSでユーザーのアクセス権限を管理するためのベストプラクティスは、最小権限の原則に従ってアクセス権を付与することです。これは、ユーザーが職務を遂行するために必要最小限の権限のみを付与し、不要な権限は与えないという原則です。ルートアカウントの認証情報の共有、すべてのユーザーへの管理者権限の付与、アクセスキーのソースコードへの埋め込みは、いずれもセキュリティリスクを高める危険な方法です。",
+      "relatedServices": ["AWS IAM", "AWS Organizations", "AWS Single Sign-On"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-024",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSアカウントのルートユーザーに関するベストプラクティスはどれですか？",
+      "options": [
+        "日常的なタスクにルートユーザーを使用する",
+        "ルートユーザーの認証情報をチーム全体で共有する",
+        "ルートユーザーにMFA（多要素認証）を有効にする",
+        "ルートユーザーのアクセスキーを作成して使用する"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSアカウントのルートユーザーに関するベストプラクティスは、ルートユーザーにMFA（多要素認証）を有効にすることです。ルートユーザーは最高レベルの権限を持つため、セキュリティを強化することが重要です。また、ルートユーザーは日常的なタスクには使用せず、IAMユーザーを作成して必要な権限を付与すべきです。ルートユーザーの認証情報の共有やアクセスキーの作成・使用は、セキュリティリスクを高める危険な方法です。",
+      "relatedServices": ["AWS IAM", "AWS Organizations"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-025",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSでデータを保護するための暗号化オプションとして正しいものはどれですか？",
+      "options": [
+        "AWSはデータの暗号化をサポートしていない",
+        "保存データと転送中データの両方を暗号化できる",
+        "保存データのみ暗号化できる",
+        "転送中データのみ暗号化できる"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWSでは、保存データ（データ保管時）と転送中データ（データ転送時）の両方を暗号化できます。保存データの暗号化には、Amazon S3のサーバーサイド暗号化、Amazon EBSの暗号化ボリューム、Amazon RDSの暗号化データベースなどがあります。転送中データの暗号化には、SSL/TLS接続、VPN接続、AWS Direct Connectなどがあります。AWSは包括的な暗号化オプションを提供しており、データのライフサイクル全体を通じてセキュリティを確保できます。",
+      "relatedServices": ["AWS KMS", "AWS Certificate Manager", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-026",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSでネットワークトラフィックを制御するために使用されるサービスはどれですか？",
+      "options": [
+        "Amazon S3",
+        "Amazon RDS",
+        "セキュリティグループとネットワークACL",
+        "AWS Lambda"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSでネットワークトラフィックを制御するために使用されるのは、セキュリティグループとネットワークACL（アクセスコントロールリスト）です。セキュリティグループはインスタンスレベルで動作し、ステートフルなファイアウォールとして機能します。ネットワークACLはサブネットレベルで動作し、ステートレスなファイアウォールとして機能します。これらを組み合わせることで、AWSリソースへのネットワークアクセスを細かく制御できます。Amazon S3はストレージサービス、Amazon RDSはデータベースサービス、AWS Lambdaはサーバーレスコンピューティングサービスです。",
+      "relatedServices": ["Amazon VPC", "AWS Network Firewall", "AWS WAF"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-027",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSのコンプライアンスプログラムに関する説明として正しいものはどれですか？",
+      "options": [
+        "AWSはコンプライアンス認証を取得していない",
+        "AWSのコンプライアンス認証により、顧客のアプリケーションは自動的にコンプライアンス要件を満たす",
+        "AWSは様々な国際的および地域的なコンプライアンス標準に準拠している",
+        "AWSのコンプライアンスプログラムは米国内のみに適用される"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWSは、ISO 27001、SOC 1/2/3、PCI DSS、HIPAA、GDPR、FedRAMPなど、様々な国際的および地域的なコンプライアンス標準に準拠しています。ただし、AWSのコンプライアンス認証があっても、顧客のアプリケーションが自動的にコンプライアンス要件を満たすわけではありません。責任共有モデルに基づき、顧客は自身の責任範囲内でコンプライアンス要件を満たす必要があります。AWSのコンプライアンスプログラムは米国内だけでなく、グローバルに適用されます。",
+      "relatedServices": ["AWS Artifact", "AWS Config", "AWS Security Hub"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-028",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSのセキュリティ情報とイベント管理（SIEM）ソリューションを提供するサービスはどれですか？",
+      "options": [
+        "Amazon Inspector",
+        "AWS Security Hub",
+        "Amazon GuardDuty",
+        "AWS Shield"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS Security Hubは、AWSのセキュリティ情報とイベント管理（SIEM）ソリューションを提供するサービスです。複数のAWSセキュリティサービスからの結果を集約、整理、優先順位付けし、セキュリティの状態を包括的に把握できます。Amazon Inspectorは自動セキュリティ評価サービス、Amazon GuardDutyは脅威検出サービス、AWS Shieldは分散型サービス拒否（DDoS）攻撃からの保護サービスです。",
+      "relatedServices": ["Amazon Detective", "AWS Config", "Amazon CloudWatch"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-029",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSで分散型サービス拒否（DDoS）攻撃からの保護を提供するサービスはどれですか？",
+      "options": [
+        "Amazon Inspector",
+        "AWS WAF",
+        "AWS Shield",
+        "Amazon GuardDuty"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWS Shieldは、AWSで分散型サービス拒否（DDoS）攻撃からの保護を提供するサービスです。AWS Shield Standardは追加料金なしですべてのAWSユーザーに提供され、一般的なDDoS攻撃から保護します。より高度な保護が必要な場合は、AWS Shield Advancedを利用できます。Amazon Inspectorは自動セキュリティ評価サービス、AWS WAFはウェブアプリケーションファイアウォール（DDoS保護の一部として使用可能）、Amazon GuardDutyは脅威検出サービスです。",
+      "relatedServices": ["AWS WAF", "Amazon CloudFront", "Amazon Route 53"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-030",
+      "category": "セキュリティとコンプライアンス",
+      "question": "AWSで暗号化キーを管理するための専用サービスはどれですか？",
+      "options": [
+        "AWS IAM",
+        "AWS KMS",
+        "Amazon S3",
+        "AWS Certificate Manager"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS KMS（Key Management Service）は、AWSで暗号化キーを作成および管理するための専用サービスです。これにより、データの暗号化に使用する暗号化キーを制御できます。AWS IAMはアイデンティティとアクセス管理サービス、Amazon S3はオブジェクトストレージサービス、AWS Certificate Managerは公開および非公開SSL/TLS証明書を管理するサービスです。",
+      "relatedServices": ["AWS CloudHSM", "Amazon S3", "Amazon EBS"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-031",
+      "category": "テクノロジー",
+      "question": "AWSでサーバーレスコンピューティングを提供する主要なサービスはどれですか？",
+      "options": [
+        "Amazon EC2",
+        "Amazon RDS",
+        "AWS Lambda",
+        "Amazon EBS"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWS Lambdaは、AWSでサーバーレスコンピューティングを提供する主要なサービスです。サーバーのプロビジョニングや管理を行わずにコードを実行でき、使用したコンピューティング時間に対してのみ料金が発生します。Amazon EC2は仮想サーバーサービス、Amazon RDSはリレーショナルデータベースサービス、Amazon EBSはブロックストレージサービスです。",
+      "relatedServices": ["Amazon API Gateway", "AWS Step Functions", "Amazon DynamoDB"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-032",
+      "category": "テクノロジー",
+      "question": "AWSでコンテナオーケストレーションを提供するサービスはどれですか？",
+      "options": [
+        "Amazon EC2",
+        "Amazon ECS",
+        "Amazon RDS",
+        "Amazon S3"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon ECS（Elastic Container Service）は、AWSでコンテナオーケストレーションを提供するサービスです。Docker コンテナをサポートし、AWSでコンテナ化されたアプリケーションを簡単に実行、停止、管理できます。Amazon EC2は仮想サーバーサービス、Amazon RDSはリレーショナルデータベースサービス、Amazon S3はオブジェクトストレージサービスです。",
+      "relatedServices": ["Amazon EKS", "AWS Fargate", "Amazon ECR"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-033",
+      "category": "テクノロジー",
+      "question": "AWSでNoSQLデータベースを提供するサービスはどれですか？",
+      "options": [
+        "Amazon RDS",
+        "Amazon Redshift",
+        "Amazon DynamoDB",
+        "Amazon Aurora"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon DynamoDBは、AWSでNoSQLデータベースを提供するサービスです。フルマネージドのキーバリューストアとドキュメントデータベースであり、あらゆる規模でシングルデジットミリ秒のパフォーマンスを提供します。Amazon RDSとAmazon Auroraはリレーショナルデータベースサービス、Amazon Redshiftはデータウェアハウスサービスです。",
+      "relatedServices": ["Amazon DocumentDB", "Amazon ElastiCache", "Amazon Keyspaces"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-034",
+      "category": "テクノロジー",
+      "question": "AWSでデータウェアハウスを提供するサービスはどれですか？",
+      "options": [
+        "Amazon RDS",
+        "Amazon Redshift",
+        "Amazon DynamoDB",
+        "Amazon ElastiCache"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon Redshiftは、AWSでデータウェアハウスを提供するサービスです。ペタバイト規模のデータに対して高速なクエリパフォーマンスを提供し、データ分析に最適化されています。Amazon RDSはリレーショナルデータベースサービス、Amazon DynamoDBはNoSQLデータベースサービス、Amazon ElastiCacheはインメモリキャッシュサービスです。",
+      "relatedServices": ["AWS Glue", "Amazon Athena", "Amazon QuickSight"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-035",
+      "category": "テクノロジー",
+      "question": "AWSでインメモリキャッシュを提供するサービスはどれですか？",
+      "options": [
+        "Amazon RDS",
+        "Amazon DynamoDB",
+        "Amazon ElastiCache",
+        "Amazon Redshift"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon ElastiCacheは、AWSでインメモリキャッシュを提供するサービスです。Redis や Memcached 互換のインメモリデータストアを提供し、ウェブアプリケーションのパフォーマンスを向上させます。Amazon RDSはリレーショナルデータベースサービス、Amazon DynamoDBはNoSQLデータベースサービス、Amazon Redshiftはデータウェアハウスサービスです。",
+      "relatedServices": ["Amazon DynamoDB Accelerator (DAX)", "Amazon MemoryDB for Redis"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-036",
+      "category": "テクノロジー",
+      "question": "AWSでマネージドKafkaサービスを提供するのはどれですか？",
+      "options": [
+        "Amazon SQS",
+        "Amazon SNS",
+        "Amazon MSK",
+        "Amazon MQ"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon MSK（Managed Streaming for Kafka）は、AWSでマネージドKafkaサービスを提供します。Apache Kafkaクラスターの構築、管理、運用を簡素化し、リアルタイムのストリーミングデータパイプラインを構築できます。Amazon SQSはキューイングサービス、Amazon SNSは通知サービス、Amazon MQはマネージドメッセージブローカーサービス（ActiveMQ、RabbitMQ）です。",
+      "relatedServices": ["Amazon Kinesis", "AWS Glue", "Amazon Data Firehose"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-037",
+      "category": "テクノロジー",
+      "question": "AWSでAPIを作成、公開、管理するためのサービスはどれですか？",
+      "options": [
+        "AWS Lambda",
+        "Amazon API Gateway",
+        "Amazon Route 53",
+        "AWS Direct Connect"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon API Gatewayは、AWSでAPIを作成、公開、管理するためのサービスです。RESTful APIやWebSocket APIを簡単に作成でき、バックエンドサービス（AWS Lambda、Amazon EC2など）と統合できます。AWS Lambdaはサーバーレスコンピューティングサービス、Amazon Route 53はDNSサービス、AWS Direct Connectは専用ネットワーク接続サービスです。",
+      "relatedServices": ["AWS Lambda", "Amazon Cognito", "AWS AppSync"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-038",
+      "category": "テクノロジー",
+      "question": "AWSでサーバーレスアプリケーションを構築するために一般的に使用されるサービスの組み合わせはどれですか？",
+      "options": [
+        "Amazon EC2、Amazon RDS、Amazon EBS",
+        "AWS Lambda、Amazon API Gateway、Amazon DynamoDB",
+        "Amazon ECS、Amazon ECR、Amazon RDS",
+        "Amazon S3、Amazon CloudFront、Amazon EC2"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS Lambda、Amazon API Gateway、Amazon DynamoDBは、AWSでサーバーレスアプリケーションを構築するために一般的に使用されるサービスの組み合わせです。AWS Lambdaはサーバーレスコンピューティング、Amazon API Gatewayはサーバーレスなエンドポイント、Amazon DynamoDBはサーバーレスなデータベースを提供します。これらを組み合わせることで、サーバーのプロビジョニングや管理を行わずにアプリケーションを構築できます。他の選択肢は、サーバーベースのアーキテクチャに関連するサービスの組み合わせです。",
+      "relatedServices": ["Amazon S3", "Amazon Cognito", "AWS Step Functions"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-039",
+      "category": "テクノロジー",
+      "question": "AWSでマイクロサービスアーキテクチャを実装するのに適したサービスはどれですか？",
+      "options": [
+        "Amazon S3",
+        "Amazon ECS",
+        "Amazon Glacier",
+        "Amazon Redshift"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon ECS（Elastic Container Service）は、AWSでマイクロサービスアーキテクチャを実装するのに適したサービスです。コンテナ化されたアプリケーションを簡単に実行、停止、管理でき、各マイクロサービスを独立したコンテナとしてデプロイできます。Amazon S3はオブジェクトストレージサービス、Amazon Glacierは長期アーカイブストレージサービス、Amazon Redshiftはデータウェアハウスサービスです。",
+      "relatedServices": ["Amazon EKS", "AWS Fargate", "AWS App Mesh"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-040",
+      "category": "テクノロジー",
+      "question": "AWSでウェブアプリケーションをホストするための一般的なサービスの組み合わせはどれですか？",
+      "options": [
+        "Amazon EC2、Amazon RDS、Elastic Load Balancing",
+        "Amazon S3、Amazon Glacier、AWS Snowball",
+        "Amazon Redshift、Amazon EMR、Amazon Athena",
+        "AWS Lambda、Amazon Kinesis、Amazon Redshift"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Amazon EC2、Amazon RDS、Elastic Load Balancingは、AWSでウェブアプリケーションをホストするための一般的なサービスの組み合わせです。Amazon EC2はウェブサーバー、Amazon RDSはデータベース、Elastic Load Balancingはトラフィック分散を提供します。他の選択肢は、データストレージ、データ分析、ストリーミング処理などの異なる用途に適したサービスの組み合わせです。",
+      "relatedServices": ["Amazon CloudFront", "Amazon Route 53", "AWS Auto Scaling"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-041",
+      "category": "テクノロジー",
+      "question": "AWSでビッグデータ処理を行うためのサービスはどれですか？",
+      "options": [
+        "Amazon RDS",
+        "Amazon EMR",
+        "Amazon Aurora",
+        "Amazon ECS"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon EMR（Elastic MapReduce）は、AWSでビッグデータ処理を行うためのサービスです。Apache Hadoop、Apache Spark、HBase、Presto、Hiveなどのオープンソースツールを使用して、大規模なデータセットを処理できます。Amazon RDSとAmazon Auroraはリレーショナルデータベースサービス、Amazon ECSはコンテナオーケストレーションサービスです。",
+      "relatedServices": ["Amazon Athena", "AWS Glue", "Amazon Redshift"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-042",
+      "category": "テクノロジー",
+      "question": "AWSでストリーミングデータを処理するためのサービスはどれですか？",
+      "options": [
+        "Amazon S3",
+        "Amazon Glacier",
+        "Amazon Kinesis",
+        "Amazon EFS"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "Amazon Kinesisは、AWSでストリーミングデータを処理するためのサービスです。リアルタイムでデータを収集、処理、分析できます。Amazon S3はオブジェクトストレージサービス、Amazon Glacierは長期アーカイブストレージサービス、Amazon EFSはファイルストレージサービスです。",
+      "relatedServices": ["Amazon MSK", "AWS Lambda", "Amazon Data Firehose"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-043",
+      "category": "テクノロジー",
+      "question": "AWSで機械学習モデルを構築、トレーニング、デプロイするためのサービスはどれですか？",
+      "options": [
+        "Amazon Redshift",
+        "Amazon SageMaker",
+        "Amazon EMR",
+        "Amazon QuickSight"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon SageMakerは、AWSで機械学習モデルを構築、トレーニング、デプロイするためのサービスです。データサイエンティストやデベロッパーが機械学習モデルを迅速に作成し、本番環境にデプロイするためのツールを提供します。Amazon Redshiftはデータウェアハウスサービス、Amazon EMRはビッグデータ処理サービス、Amazon QuickSightはビジネスインテリジェンスサービスです。",
+      "relatedServices": ["Amazon Comprehend", "Amazon Rekognition", "Amazon Forecast"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-044",
+      "category": "テクノロジー",
+      "question": "AWSでサーバーレスなデータ変換を行うためのサービスはどれですか？",
+      "options": [
+        "Amazon EMR",
+        "Amazon Redshift",
+        "AWS Glue",
+        "Amazon RDS"
+      ],
+      "correctAnswerIndex": 2,
+      "explanation": "AWS Glueは、AWSでサーバーレスなデータ変換を行うためのサービスです。ETL（抽出、変換、ロード）ジョブを簡単に作成、実行、監視でき、データソースを検出し、スキーマを定義し、データを変換してさまざまなデータストアに読み込むことができます。Amazon EMRはビッグデータ処理サービス、Amazon Redshiftはデータウェアハウスサービス、Amazon RDSはリレーショナルデータベースサービスです。",
+      "relatedServices": ["Amazon Athena", "AWS Lake Formation", "Amazon S3"],
+      "difficulty": "中級"
+    },
+    {
+      "id": "CLF-045",
+      "category": "テクノロジー",
+      "question": "AWSでサーバーレスなデータ分析を行うためのサービスはどれですか？",
+      "options": [
+        "Amazon RDS",
+        "Amazon Athena",
+        "Amazon EMR",
+        "Amazon Redshift"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon Athenaは、AWSでサーバーレスなデータ分析を行うためのサービスです。標準SQLを使用してAmazon S3内のデータを直接分析でき、サーバーのプロビジョニングや管理を行わずに使用したクエリに対してのみ料金が発生します。Amazon RDSはリレーショナルデータベースサービス、Amazon EMRはビッグデータ処理サービス、Amazon Redshiftはデータウェアハウスサービスです。",
+      "relatedServices": ["AWS Glue", "Amazon QuickSight", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-046",
+      "category": "テクノロジー",
+      "question": "AWSでビジネスインテリジェンスを提供するサービスはどれですか？",
+      "options": [
+        "Amazon QuickSight",
+        "Amazon Redshift",
+        "Amazon Athena",
+        "AWS Glue"
+      ],
+      "correctAnswerIndex": 0,
+      "explanation": "Amazon QuickSightは、AWSでビジネスインテリジェンスを提供するサービスです。クラウドベースのビジネスインテリジェンスサービスであり、データの視覚化、アドホック分析、ビジネスインサイトの取得を可能にします。Amazon Redshiftはデータウェアハウスサービス、Amazon Athenaはサーバーレスなデータ分析サービス、AWS Glueはサーバーレスなデータ変換サービスです。",
+      "relatedServices": ["Amazon Redshift", "Amazon Athena", "Amazon S3"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-047",
+      "category": "テクノロジー",
+      "question": "AWSでIoT（モノのインターネット）デバイスを接続および管理するためのサービスはどれですか？",
+      "options": [
+        "Amazon EC2",
+        "AWS IoT Core",
+        "Amazon RDS",
+        "Amazon S3"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS IoT Coreは、AWSでIoT（モノのインターネット）デバイスを接続および管理するためのサービスです。IoTデバイスをクラウドに安全に接続し、他のAWSサービスとの間でデータを送受信できます。Amazon EC2は仮想サーバーサービス、Amazon RDSはリレーショナルデータベースサービス、Amazon S3はオブジェクトストレージサービスです。",
+      "relatedServices": ["AWS IoT Greengrass", "AWS IoT Analytics", "Amazon Kinesis"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-048",
+      "category": "テクノロジー",
+      "question": "AWSでモバイルアプリケーションのバックエンドを構築するためのサービスはどれですか？",
+      "options": [
+        "Amazon EC2",
+        "AWS Amplify",
+        "Amazon RDS",
+        "Amazon S3"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS Amplifyは、AWSでモバイルアプリケーションのバックエンドを構築するためのサービスです。認証、ストレージ、APIなどの機能を簡単に追加でき、モバイルおよびウェブアプリケーションの開発を加速します。Amazon EC2は仮想サーバーサービス、Amazon RDSはリレーショナルデータベースサービス、Amazon S3はオブジェクトストレージサービスです。",
+      "relatedServices": ["Amazon Cognito", "AWS AppSync", "Amazon API Gateway"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-049",
+      "category": "テクノロジー",
+      "question": "AWSでサーバーレスなウェブアプリケーションを構築するためのサービスはどれですか？",
+      "options": [
+        "Amazon EC2",
+        "AWS Amplify",
+        "Amazon ECS",
+        "Amazon RDS"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "AWS Amplifyは、AWSでサーバーレスなウェブアプリケーションを構築するためのサービスです。フロントエンドのウェブUIライブラリとバックエンドのサーバーレスサービスを提供し、フルスタックのウェブおよびモバイルアプリケーションを簡単に構築できます。Amazon EC2は仮想サーバーサービス、Amazon ECSはコンテナオーケストレーションサービス、Amazon RDSはリレーショナルデータベースサービスです。",
+      "relatedServices": ["AWS Lambda", "Amazon API Gateway", "Amazon DynamoDB"],
+      "difficulty": "基本"
+    },
+    {
+      "id": "CLF-050",
+      "category": "テクノロジー",
+      "question": "AWSでコンテナイメージを保存および管理するためのサービスはどれですか？",
+      "options": [
+        "Amazon S3",
+        "Amazon ECR",
+        "Amazon EBS",
+        "Amazon EFS"
+      ],
+      "correctAnswerIndex": 1,
+      "explanation": "Amazon ECR（Elastic Container Registry）は、AWSでコンテナイメージを保存および管理するためのサービスです。Docker コンテナイメージを簡単に保存、管理、デプロイでき、Amazon ECSやAmazon EKSなどのコンテナオーケストレーションサービスと統合されています。Amazon S3はオブジェクトストレージサービス、Amazon EBSはブロックストレージサービス、Amazon EFSはファイルストレージサービスです。",
+      "relatedServices": ["Amazon ECS", "Amazon EKS", "AWS Fargate"],
+      "difficulty": "基本"
+    }
+  ]
+}
+
